@@ -9,6 +9,7 @@ Before(async function () {
 
 class CustomWorld extends World {
   readonly foo: string = 'bar'
+  doThing(): void {}
 }
 
 // `this` can be overridden with custom world class
@@ -16,4 +17,5 @@ Before(async function (this: CustomWorld) {
   if (!this.foo) {
     throw new Error('test')
   }
+  this.doThing()
 })
