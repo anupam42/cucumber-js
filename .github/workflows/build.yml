@@ -24,6 +24,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn install
     - run: yarn test
+    - uses: actions/upload-artifact@v2
+      with:
+        name: report-node-${{ matrix.node-version }}-${{ matrix.os }}
+        path: html-formatter.html
 
   coverage:
     runs-on: ubuntu-latest
